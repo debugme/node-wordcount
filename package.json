@@ -1,0 +1,19 @@
+{
+  "name": "wordcount",
+  "version": "1.0.0",
+  "description": "identify count of unique words in text",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "keywords": [],
+  "author": "Asad Razvi",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-plugin-react": "^6.10.3"
+  },
+  "dependencies": {
+    "nanotimer": "^0.3.14"
+  }
+}
