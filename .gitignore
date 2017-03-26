@@ -1,1 +1,3 @@
-smallOutput.json
+output/
+coverage/
+*.log

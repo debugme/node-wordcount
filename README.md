@@ -11,3 +11,9 @@ const primes = tokens.reduce(function(acc, val) {
 
 fs.writeFileSync('./primes.json', JSON.stringify(primes))
 ```
+
+How to run ES6 tests and get coverage reports generated
+
+```
+https://onsen.io/blog/mocha-chaijs-unit-test-coverage-es6/
+```
