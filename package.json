@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "rm -rf output; mkdir output; babel-node index; diff output/one.json output/two.json",
-    "test": "babel-node ./node_modules/isparta/bin/isparta cover _mocha",
-    "x": "babel-node index"
+    "test": "babel-node ./node_modules/isparta/bin/isparta cover _mocha"
   },
   "keywords": [],
   "author": "Asad Razvi",
@@ -23,8 +22,6 @@
     "isparta": "^4.0.0"
   },
   "dependencies": {
-    "mocha": "^3.2.0",
-    "nodemon": "^1.11.0",
-    "nanotimer": "^0.3.14"
+    "mocha": "^3.2.0"
   }
 }

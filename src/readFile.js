@@ -1,5 +1,5 @@
 import fs from 'fs'
-import primes from '../utilities/primes'
+import primes from './primes'
 
 function updateMetrics(metrics, primes, text) {
   const lines = text.toLowerCase().split(/\n/)
@@ -38,29 +38,21 @@ const bufferedRead = options => {
 const streamedRead = options => {
   return new Promise(function(resolve, reject) {
     try {
-      const highWaterMark = options.highWaterMark || 655360
+      const { filepath, highWaterMark = 655360 } = options
       const metrics = {}
       let store = []
-      fs.createReadStream(options.filepath, { highWaterMark })
+      fs.createReadStream(filepath, { highWaterMark })
         .on('data', data => {
           const fragment = data.toString()
           store.push(fragment)
-          console.log(`PUSH [${fragment}]`)
           if (fragment.endsWith(' ')) {
-            const text = store.join('')
+            updateMetrics(metrics, primes, store.join(''))
             store = []
-            console.log(`UPDT [${text}]`)
-            updateMetrics(metrics, primes, text)
           }
         })
         .on('end', (data) => {
-          if (store.length > 0) {
-            const text = store.join('')
-            store = []
-            console.log(`UPDT [${text}]`)
-            updateMetrics(metrics, primes, text)
-          }
-          // console.log(metrics)
+          const text = store.join('')
+          updateMetrics(metrics, primes, text)
           resolve(metrics)
         })
         .on('error', error => {

@@ -1,9 +1,9 @@
 import path from 'path'
 import assert from 'assert'
 
-import readFile from '../source/readFile'
+import readFile from '../src/readFile'
 
-describe('how to read a file using a buffered approach', () => {
+describe('reading a file using a buffered approach', () => {
 
   let metrics = null
 
@@ -54,7 +54,7 @@ describe('how to read a file using a buffered approach', () => {
     assert.equal(expectWordIsPrime, actualWordIsPrime)
   })
 
-  it('should identify if the count of a word ais not a prime number', () => {
+  it('should identify if the count of a word is not a prime number', () => {
     const expectWordIsPrime = false
     const actualWordIsPrime = metrics.banana.prime
     assert.equal(expectWordIsPrime, actualWordIsPrime)

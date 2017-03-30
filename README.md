@@ -5,7 +5,15 @@
 // 4. file is empty
 
 
+import fs from 'fs'
 
+import readFile from './source/readFile'
+
+readFile({ filepath: 'input/input.txt', strategy: 'buffered' })
+  .then(metrics => fs.writeFileSync('./output/one.json', JSON.stringify(metrics, undefined, 2)))
+
+readFile({ filepath: 'input/input.txt', strategy: 'streamed' })
+  .then(metrics => fs.writeFileSync('./output/two.json', JSON.stringify(metrics, undefined, 2)))
 
 
 // const fs = require('fs')

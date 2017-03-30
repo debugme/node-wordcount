@@ -1,16 +1,16 @@
 import path from 'path'
 import assert from 'assert'
 
-import readFile from '../source/readFile'
+import readFile from '../src/readFile'
 
-describe('how to read a file using a streamed approach', () => {
+describe('reading a file using a streamed approach', () => {
 
   let metrics = null
 
   before(done => {
     const strategy = 'streamed'
     const filepath = path.join(__dirname, 'data.txt')
-    const highWaterMark = 7
+    const highWaterMark = 5
     const options = { strategy, filepath, highWaterMark }
     readFile(options)
       .then(function (data) {
@@ -55,7 +55,7 @@ describe('how to read a file using a streamed approach', () => {
     assert.equal(expectWordIsPrime, actualWordIsPrime)
   })
 
-  it('should identify if the count of a word ais not a prime number', () => {
+  it('should identify if the count of a word is not a prime number', () => {
     const expectWordIsPrime = false
     const actualWordIsPrime = metrics.banana.prime
     assert.equal(expectWordIsPrime, actualWordIsPrime)
