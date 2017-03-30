@@ -1,5 +1,5 @@
 import fs from 'fs'
-import primes from './primes'
+import primes from '../data/primes'
 
 function updateMetrics(metrics, primes, text) {
   const lines = text.toLowerCase().split(/\n/)

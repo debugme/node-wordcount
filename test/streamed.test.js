@@ -1,7 +1,7 @@
 import path from 'path'
 import assert from 'assert'
 
-import readFile from '../src/readFile'
+import readFile from '../source/readFile'
 
 describe('reading a file using a streamed approach', () => {
 
@@ -9,7 +9,7 @@ describe('reading a file using a streamed approach', () => {
 
   before(done => {
     const strategy = 'streamed'
-    const filepath = path.join(__dirname, 'data.txt')
+    const filepath = path.join(__dirname, '..', 'data', 'data.txt')
     const highWaterMark = 5
     const options = { strategy, filepath, highWaterMark }
     readFile(options)
@@ -62,7 +62,7 @@ describe('reading a file using a streamed approach', () => {
   })
 
   it('should throw exception for invalid file path', function (done) {
-    const options = { strategy: 'streamed', filepath: path.join(__dirname, 'naughty.txt') }
+    const options = { strategy: 'streamed', filepath: path.join(__dirname, '..', 'data', 'naughty.txt') }
     readFile(options)
       .catch(function (error) {
         assert.equal(true, error.toString().indexOf('no such file') >= 0)

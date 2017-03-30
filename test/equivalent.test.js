@@ -1,7 +1,7 @@
 import path from 'path'
 import assert from 'assert'
 
-import readFile from '../src/readFile'
+import readFile from '../source/readFile'
 
 describe('behaviour of buffered and streamed file reading', () => {
 
@@ -12,12 +12,12 @@ describe('behaviour of buffered and streamed file reading', () => {
 
     const bufferedOptions = {
       strategy: 'buffered',
-      filepath: path.join(__dirname, 'book.txt')
+      filepath: path.join(__dirname, '..', 'data', 'book.txt')
     }
 
     const streamedOptions = {
       strategy: 'streamed',
-      filepath: path.join(__dirname, 'book.txt')
+      filepath: path.join(__dirname, '..', 'data', 'book.txt')
     }
 
     const queries = [ readFile(bufferedOptions), readFile(streamedOptions) ]

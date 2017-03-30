@@ -1,7 +1,7 @@
 import path from 'path'
 import assert from 'assert'
 
-import readFile from '../src/readFile'
+import readFile from '../source/readFile'
 
 describe('reading a file using a buffered approach', () => {
 
@@ -9,7 +9,7 @@ describe('reading a file using a buffered approach', () => {
 
   before(done => {
     const strategy = 'buffered'
-    const filepath = path.join(__dirname, 'data.txt')
+    const filepath = path.join(__dirname, '..', 'data', 'data.txt')
     const options = { strategy, filepath }
     readFile(options)
       .then(function (data) {
@@ -61,7 +61,7 @@ describe('reading a file using a buffered approach', () => {
   })
 
   it('should throw exception for invalid file path', function (done) {
-    const options = { strategy: 'buffered', filepath: path.join(__dirname, 'naughty.txt') }
+    const options = { strategy: 'buffered', filepath: path.join(__dirname, '..', 'data', 'naughty.txt') }
     readFile(options)
       .catch(function (error) {
         assert.equal(true, error.toString().indexOf('no such file') >= 0)

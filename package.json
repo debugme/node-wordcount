@@ -7,7 +7,7 @@
     "node": "7.8.0"
   },
   "scripts": {
-    "start": "rm -rf output; mkdir output; babel-node src/index; diff output/one.json output/two.json",
+    "start": "rm -rf output; mkdir output; babel-node source/index; diff output/buffered.json output/streamed.json",
     "test": "babel-node ./node_modules/isparta/bin/isparta cover _mocha"
   },
   "keywords": [],
