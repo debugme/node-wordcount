@@ -18,16 +18,15 @@ function updateMetrics(metrics, primes, text) {
     }, metrics)
     return metrics
   }, metrics)
-  if (metrics[''])
-    delete metrics['']
   return metrics
 }
 
 const bufferedRead = options => {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     try {
       const text = fs.readFileSync(options.filepath, 'utf-8')
       const metrics = updateMetrics({}, primes, text)
+      delete metrics['']
       resolve(metrics)
     } catch (error) {
       reject(error)
@@ -36,36 +35,33 @@ const bufferedRead = options => {
 }
 
 const streamedRead = options => {
-  return new Promise(function(resolve, reject) {
-    try {
-      const { filepath, highWaterMark = 655360 } = options
-      const metrics = {}
-      let store = []
-      fs.createReadStream(filepath, { highWaterMark })
-        .on('data', data => {
-          const fragment = data.toString()
-          store.push(fragment)
-          if (fragment.endsWith(' ')) {
-            updateMetrics(metrics, primes, store.join(''))
-            store = []
-          }
-        })
-        .on('end', (data) => {
-          const text = store.join('')
-          updateMetrics(metrics, primes, text)
-          resolve(metrics)
-        })
-        .on('error', error => {
-          reject(error)
-        })
-    } catch (error) {
-      reject(error)
-    }
+  return new Promise(function (resolve, reject) {
+    const { filepath, highWaterMark = 655360 } = options
+    const metrics = {}
+    let store = []
+    fs.createReadStream(filepath, { highWaterMark })
+      .on('data', data => {
+        const fragment = data.toString()
+        store.push(fragment)
+        if (fragment.endsWith(' ')) {
+          updateMetrics(metrics, primes, store.join(''))
+          store = []
+        }
+      })
+      .on('end', (data) => {
+        const text = store.join('')
+        updateMetrics(metrics, primes, text)
+        delete metrics['']
+        resolve(metrics)
+      })
+      .on('error', error => {
+        reject(error)
+      })
   })
 }
 
 const readFile = options => {
-  if (options.approach === 'buffered')
+  if (options.strategy === 'buffered')
     return bufferedRead(options)
   else
     return streamedRead(options)

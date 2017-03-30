@@ -59,4 +59,13 @@ describe('reading a file using a buffered approach', () => {
     const actualWordIsPrime = metrics.banana.prime
     assert.equal(expectWordIsPrime, actualWordIsPrime)
   })
+
+  it('should throw exception for invalid file path', function (done) {
+    const options = { strategy: 'buffered', filepath: path.join(__dirname, 'naughty.txt') }
+    readFile(options)
+      .catch(function (error) {
+        assert.equal(true, error.toString().indexOf('no such file') >= 0)
+        done()
+      })
+  })
 })

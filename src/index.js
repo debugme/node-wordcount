@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-import readFile from './src/readFile'
+import readFile from './readFile'
 
 readFile({ filepath: 'test/book.txt', strategy: 'buffered' })
   .then(metrics => fs.writeFileSync('./output/one.json', JSON.stringify(metrics, undefined, 2)))

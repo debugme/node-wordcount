@@ -3,6 +3,7 @@
 // 2. file to read from is not actually a file
 // 3. file to read from is not permissioned to let you read it
 // 4. file is empty
+// 5. Handle error cases to get 100% test coverage!!
 
 
 import fs from 'fs'
