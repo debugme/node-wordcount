@@ -4,8 +4,9 @@
   "description": "identify count of unique words in text",
   "main": "index.js",
   "scripts": {
-    "start": "rm -rf output; mkdir output; node index; diff output/one.json output/two.json",
-    "test": "babel-node ./node_modules/isparta/bin/isparta cover _mocha"
+    "start": "rm -rf output; mkdir output; babel-node index; diff output/one.json output/two.json",
+    "test": "babel-node ./node_modules/isparta/bin/isparta cover _mocha",
+    "x": "babel-node index"
   },
   "keywords": [],
   "author": "Asad Razvi",
