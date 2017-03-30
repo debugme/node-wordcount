@@ -19,6 +19,7 @@ function updateMetrics(metrics, primes, text) {
     }, metrics)
     return metrics
   }, metrics)
+  return metrics
 }
 
 const approachOne = function (callback) {
@@ -45,3 +46,9 @@ new NanoTimer().time(approachTwo, '', 's', time => console.log(`Asynchronous App
 
 
 
+
+
+
+
+// "the longest possible array could have 232-1 = 4,294,967,295 = 4.29 billion elements." (http://stackoverflow.com/questions/6154989/maximum-size-of-an-array-in-javascript)
+// " 2^32 - 1 for an object in javascript i.e. 4294967295" (http://stackoverflow.com/questions/9282869/are-there-limits-to-the-number-of-properties-in-a-javascript-object)
