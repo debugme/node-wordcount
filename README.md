@@ -6,6 +6,23 @@ The code showcases two different ways to read a file
 * Buffered Approach - the whole file is buffered into memory in a single chunk and processed in one step
 * Streaming Approach - the file is streamed into memory in multiple chunks and processed in multiple steps
 
+## Buffered Approach
+### Pros
+* The code is simpler to understand as the logic is sequential
+* The code will run faster as everything it needs is in memory
+### Cons
+* The program will crash with a file too large to fit in memory
+* The program can potentially fill up memory affecting system performance
+
+## Streamed Approach
+### Pros
+* The code can process files larger than that which can fit into memory
+* The code can tune chunk size to ensure not too much memory is used up
+### Cons
+* The code is harder to understand as the logic is concurrent
+* The code will run slower as the file is loaded in multiple chunks to be processed
+
+
 # Install Steps
 * Install [Node 7.8.0](https://nodejs.org/en/)
 

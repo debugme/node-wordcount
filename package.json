@@ -14,14 +14,15 @@
   "author": "Asad Razvi",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^3.18.0",
-    "eslint-plugin-react": "^6.10.3",
     "babel-cli": "^6.23.0",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-es2016": "^6.22.0",
     "babel-preset-es2017": "^6.22.0",
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.23.0",
+    "chai": "^3.5.0",
+    "eslint": "^3.18.0",
+    "eslint-plugin-react": "^6.10.3",
     "isparta": "^4.0.0"
   },
   "dependencies": {

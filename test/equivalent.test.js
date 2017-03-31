@@ -1,5 +1,5 @@
 import path from 'path'
-import assert from 'assert'
+import { expect } from 'chai'
 
 import readFile from '../source/readFile'
 
@@ -29,7 +29,7 @@ describe('behaviour of buffered and streamed file reading', () => {
   })
 
   it('should produce identical results for streamed and buffered file reads', () => {
-    assert.deepEqual(bufferedMetrics, streamedMetrics)
+    expect(bufferedMetrics).to.deep.equal(streamedMetrics)
   })
 
 })
