@@ -3,6 +3,7 @@ import { expect } from 'chai'
 
 import readFile from '../source/readFile'
 
+/* global describe, before, it */
 describe('behaviour of buffered and streamed file reading', () => {
 
   let bufferedMetrics = { todo: 'fill with metrics from buffered file read' }

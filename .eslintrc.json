@@ -30,11 +30,6 @@
     "semi": [
       "error",
       "never"
-    ],
-    "globals": {
-      "describe": false,
-      "before": false,
-      "it": false
-    }
+    ]
   }
 }

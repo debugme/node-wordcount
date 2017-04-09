@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "rm -rf output; mkdir output; babel-node source/index; diff output/buffered.json output/streamed.json",
-    "test": "babel-node ./node_modules/isparta/bin/isparta cover _mocha"
+    "test": "babel-node ./node_modules/isparta/bin/isparta cover _mocha",
+    "lint": "eslint source"
   },
   "keywords": [],
   "author": "Asad Razvi",

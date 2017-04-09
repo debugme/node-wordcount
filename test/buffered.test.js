@@ -3,6 +3,7 @@ import { expect } from 'chai'
 
 import readFile from '../source/readFile'
 
+/* global describe, before, it */
 describe('reading a file using a buffered approach', () => {
 
   let metrics = null
@@ -64,7 +65,7 @@ describe('reading a file using a buffered approach', () => {
     const options = { strategy: 'buffered', filepath: path.join(__dirname, '..', 'data', 'naughty.txt') }
     readFile(options)
       .catch(function (error) {
-        expect(error.toString().indexOf('no such file') >= 0).to.be.true;
+        expect(error.toString().indexOf('no such file') >= 0).to.be.true
         done()
       })
   })
