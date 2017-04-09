@@ -39,24 +39,27 @@ const streamedRead = options => {
     const { filepath, highWaterMark = 655360 } = options
     const metrics = {}
     let store = []
+    const onData = (data) => {
+      const fragment = data.toString()
+      store.push(fragment)
+      if (fragment.endsWith(' ')) {
+        updateMetrics(metrics, primes, store.join(''))
+        store = []
+      }
+    }
+    const onEnd = () => {
+      const text = store.join('')
+      updateMetrics(metrics, primes, text)
+      delete metrics['']
+      resolve(metrics)
+    }
+    const onError = (error) => {
+      reject(error)
+    }
     fs.createReadStream(filepath, { highWaterMark })
-      .on('data', data => {
-        const fragment = data.toString()
-        store.push(fragment)
-        if (fragment.endsWith(' ')) {
-          updateMetrics(metrics, primes, store.join(''))
-          store = []
-        }
-      })
-      .on('end', (data) => {
-        const text = store.join('')
-        updateMetrics(metrics, primes, text)
-        delete metrics['']
-        resolve(metrics)
-      })
-      .on('error', error => {
-        reject(error)
-      })
+      .on('data', onData)
+      .on('end', onEnd)
+      .on('error', onError)
   })
 }
 
