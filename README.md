@@ -26,7 +26,7 @@ The code showcases two different ways to read a file
 # Install Steps
 * Install [Node 7.8.0](https://nodejs.org/en/)
 
-# Build Steps
+# Build Steps (Unix)
    Open up a command line
    ```
    $
