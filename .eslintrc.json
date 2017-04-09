@@ -32,9 +32,9 @@
       "never"
     ],
     "globals": {
-      "describe": true,
-      "before": true,
-      "it": true
+      "describe": false,
+      "before": false,
+      "it": false
     }
   }
 }
