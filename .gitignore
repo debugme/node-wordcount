@@ -2,3 +2,6 @@ output/
 coverage/
 node_modules/
 *.log
+*.docx
+*.txt
+
