@@ -1,7 +1,0 @@
-npm start fails on windows because you are using unix commands
-code needs more tests esp. around files larger than 1GB
-code needs to be refactored into a production-ready form e.g. namespaced in class/object perhaps
-readFile() function should decide what approach to use internally based on examination of file size;
-functionality should not be restricted to just reading off a file; rather it should have tests to read off input streams/sockets/etc.
-you should employ strategy pattern to decide whether to calculate primes or use a table, as each has different tradeoffs
-
