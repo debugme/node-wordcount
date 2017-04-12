@@ -5,7 +5,7 @@ function updateMetrics(metrics, primes, text) {
   const lines = text.toLowerCase().split(/\n/)
   lines.reduce((info, data) => {
     const line = data.replace(/--/g, ' ')
-    const tokens = line.split(/[\s+]/)
+    const tokens = line.split(/\s+/)
     tokens.reduce((metrics, token) => {
       const word = token.replace(/[^a-z]+/g, '')
       if (metrics[word]) {

@@ -38,17 +38,17 @@ The code showcases two different ways to read a file
    ```
 
    # Run Steps
-   Run the application.
+   Run the application to produce outputs from running both approaches on same text file
    ```
    $ npm start
    ```
 
-   Confirm the results of running both approaches produce the same output
+   Confirm the results of running both approaches produce the same output (For example on Mac OS X)
    ```
    $ diff output/buffered.json output/streamed.json
    ```
 
-   Take a sneak peek to check word count and primality
+   Take a sneak peek to check word count and primality (For example on Mac OS X)
    ```
    $ head -n 30 output/buffered.json
    $ head -n 30 output/streamed.json
@@ -59,7 +59,7 @@ The code showcases two different ways to read a file
    ```
    $ npm test
    ```
-   View the test results in your browser
+   View the test results in your browser (For example on Mac OS X)
    ```
    $ open coverage/lcov-report/index.html
    ```

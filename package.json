@@ -7,11 +7,11 @@
     "node": "7.8.0"
   },
   "scripts": {
-    "start": "rm -rf output; mkdir output; babel-node source/index; diff output/buffered.json output/streamed.json",
+    "start": "rimraf output; mkdirp output; babel-node source/index",
     "test": "babel-node ./node_modules/isparta/bin/isparta cover _mocha",
     "lint": "eslint source"
   },
-  "keywords": [],
+  "keywords": ["word", "count", "primes", "buffers", "streams"],
   "author": "Asad Razvi",
   "license": "MIT",
   "devDependencies": {
@@ -24,7 +24,8 @@
     "chai": "^3.5.0",
     "eslint": "^3.18.0",
     "eslint-plugin-react": "^6.10.3",
-    "isparta": "^4.0.0"
+    "isparta": "^4.0.0",
+    "rimraf": "^2.6.1"
   },
   "dependencies": {
     "mocha": "^3.2.0"
