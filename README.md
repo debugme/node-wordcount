@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/debugme/node-wordcount.svg?branch=master)](https://travis-ci.org/debugme/node-wordcount)
+
 # Introduction
 This application shows how to read a file and generate metrics based on the contents of that file.
 
